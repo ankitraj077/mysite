@@ -1,0 +1,159 @@
+<html>
+<head><h1>MY PAGE: ANKIT RAJ<h1> <title> my details </title>
+<link rel="stylesheet"
+			  type="text/css"
+			  href="bootstrap.css"
+		      />
+<link rel="stylesheet" type="text/css" href="style.css"/>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<h3><a href="mydetails.html"> About me </a>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="mycollege.html"> College </a>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="myinterest.html"> Interest </a>
+&nbsp;
+&nbsp;
+&nbsp;
+</h3>
+</hr>
+<div class="container">
+		<h1>Image Gallery</h1>
+
+		<!--
+		   These are the thumbnail images.
+		   They are laid out using the 
+		   bootstrap grid.
+		   I have given them all the class
+		   "crop-image" which I use in the
+		   css and the javascript code.
+		-->
+		<div class="row">
+			<div class="col-md-3">
+				<img id="image1" class="crop-img" 
+				  src="1.png" 
+				  alt="graffittied building"/> 
+			</div>
+			<div class="col-md-3">
+				<img id="image2" class="crop-img" 
+				  src="2.jpe" 
+				  /> 
+			</div>
+			<div class="col-md-3">
+				<img id="image3" class="crop-img" 
+				  src="3.jpe" 
+				  alt="no image"/> 
+			</div>
+			<div class="col-md-3">
+				<img id="image4" class="crop-img" 
+				   src="4.jpe" 
+				   alt="sorry, no image"/> 
+			</div>
+	    </div>
+		<!--
+			this is the large image which is
+			on a row of its own. 
+			I will change it source in the 
+			javascript
+		-->
+		<div class="row">
+			<div class="col-md-1">
+				<button id="backward">&lt;</button>
+			</div>
+			<div class="col-md-10"><center>
+				<img id="bigImage" class="large-img" src="1.png" alt="sorry, unable to upload"/> </center>
+			</div>
+			<div class="col-md-1">
+				<button id="forward">&gt;</button>
+			</div>
+		</div>
+	</div>
+
+
+	<script>
+		// whether the slideshow is paused or not
+		var paused = false;
+
+		// when you click on a thumbnail
+		// it sets the src of the big image
+		// to be the same as the image
+		// you clicked on
+		$(".crop-img").click(function(){
+			$("#bigImage").attr('src', 
+				$(this).attr('src'));
+		});
+
+		// the counter variable that keeps
+		// track of which image you are showing
+		var counter = 1;
+		// virtually click on the current
+		// image to load it into the big image
+		$("#image"+counter).click();
+
+		// when you click on the backwards
+		// button select the previous image
+		$("#backward").click(function (){
+			// go back one in the counter
+			counter = counter - 1;
+			// if we are below 1 (the first
+			// image) loop round to 4 (the
+			// last image)
+			if(counter < 1){
+				counter = 4;
+			}
+			// virtually click on the current
+			// image to load it into the big image
+			$("#image"+counter).click();
+		});
+
+		// when you click on the backwards
+		// button select the next image
+		$("#forward").click(function (){
+			// go forward one in the counter
+			counter = counter + 1;
+			// if we are above 4 (the last
+			// image) loop round to 1 (the
+			// first image)
+			if(counter > 4){
+				counter = 1;
+			}
+			// virtually click on the current
+			// image to load it into the big image
+			$("#image"+counter).click();
+		});
+
+		// when you click the big image 
+		// toggle pausing. Set paused to 
+		// not paused, i.e. if it is paused
+		// set it to not paused, if it is 
+		// not paused set it to paused
+		$("#bigImage").click(function (){
+			paused = !paused;
+		});
+
+		// set interval makes it move 
+		// forward every 3 second
+		setInterval(function (){
+			// first check if it is paused
+			if(!paused){
+				// virtual click the forward
+				// button
+				$("#forward").click();
+			};
+		}, 3000);
+	
+
+	
+	</script>
+</hr>
+<br><br><br><br>
+<H1> JSS COLLEGE </H1>
+<p>
+Jagadguru Sri Shivarathreeshwara Academy of Technical Education (JSSATE) is an educational institute situated in Noida, Uttar Pradesh affiliated to Abdul Kalam Technical University, Gautam Buddha Nagar.[1] The institute was inaugurated by former president of India Dr. A.P.J. Abdul Kalam in 1998. The Institute was founded by JSS Mahavidyapeeth of Sri Suttur Veerashimhasana Math, Suttur. Till the year 2000, the institute was affiliated with Dr. Bhim Rao Ambedkar University, Agra. Then, when Uttar Pradesh Technical University was formed in 2001, the college came under its jurisdiction. When in 2010, the university was bifurcated, the college came under the jurisdiction of the present university. The college is approved by All India Council for Technical Education.
+</body>
+</html>
